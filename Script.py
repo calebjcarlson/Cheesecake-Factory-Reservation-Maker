@@ -18,7 +18,7 @@ end_time = 10
 #___________________________________________________________________#
 
 
-times = [":00 PM", ":15 PM", ":30 PM", ":45 PM"] # For some reason this might show as a button on the same hour
+times = [":00 PM", ":15 PM", ":30 PM", ":45 PM"] # For some reason " :XX PM" might show as a button on the same hour
 
 # Generate times for the desired time range
 for i in range(start_time, end_time):
@@ -38,7 +38,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Enter password").click()
     page.get_by_role("textbox", name="Enter password").fill(your_password)
     page.get_by_role("button", name="Log In").click()
-    page.locator("#ion-overlay-1").get_by_role("button", name="Close").click()
+    page.locator("#ion-overlay-1").get_by_role("button", name="Close").click() #This may need to be commented out, depending on if Cheesecake factory is advertising something at the time
     page.get_by_label("navigation").get_by_role("link", name="Reservations").click()
     page.get_by_role("textbox", name="enter location address").click()
     page.get_by_role("textbox", name="enter location address").fill(location)
